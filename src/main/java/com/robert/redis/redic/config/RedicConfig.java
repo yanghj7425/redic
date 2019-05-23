@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -14,13 +15,13 @@ import java.util.List;
 public class RedicConfig {
 
     @Value("${redic.cache.node.conn1}")
-    private String conn1;
+    private String connConfigStr;
 
 
     @Bean(initMethod = "init")
     public Redic redic() {
         List<String> connPool = new ArrayList<>();
-        connPool.add(conn1);
+        connPool.addAll(Arrays.asList(connConfigStr.split(",")));
         return new Redic(connPool);
     }
 
