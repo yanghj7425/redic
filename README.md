@@ -19,12 +19,13 @@ Jedis实现的ShardedJedisPool是基于一致性hash实现的，当某个节点�
 - 导入开发测试使用的Spring环境。
 
     ```java
-    @Bean
+    @Bean(initMethod = "init")
     public Redic redic() {
-        List<String> connPool = new ArrayList<>();
-        connPool.add(conn1);
-        return new Redic(connPool);
+        Redic redic = new Redic();
+        redic.setNodeConnStrs(Arrays.asList(connConfigStr.split(",")));
+        return redic;
     }
+
     ```
 
 - 配置单节点属性
