@@ -20,11 +20,9 @@ public class RedicApplicationTests {
             System.out.println("fault");
         }
 
-        redic.set("a", "This is test");
-        String a = redic.get("a");
+        redic.set("b", "This is test");
+        String a = redic.get("b");
         System.out.println(a);
-        redic.expire("a", 60);
-
     }
 
 }

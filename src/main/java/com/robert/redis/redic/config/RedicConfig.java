@@ -18,11 +18,11 @@ public class RedicConfig {
     private String connConfigStr;
 
 
-    @Bean
+    @Bean(initMethod = "init")
     public Redic redic() {
-        List<String> connPool = new ArrayList<>();
-        connPool.addAll(Arrays.asList(connConfigStr.split(",")));
-        return new Redic(connPool);
+        Redic redic = new Redic();
+        redic.setNodeConnStrs(Arrays.asList(connConfigStr.split(",")));
+        return redic;
     }
 
 }
