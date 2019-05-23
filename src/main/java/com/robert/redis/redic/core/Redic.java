@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 public class Redic extends Jedis {
     protected final Logger log = LoggerFactory.getLogger(Redic.class);
 
-    private List<RedicNode> redicNodes = new ArrayList<RedicNode>();
+    private List<RedicNode> redicNodes = new ArrayList<>();
 
     private ShardingStrategy shardingStategy = new HashShardingStrategy();
 
@@ -62,7 +62,7 @@ public class Redic extends Jedis {
         }
 
         //tackle slaves
-        List<String> slaveList = new ArrayList<String>();
+        List<String> slaveList = new ArrayList<>();
         if (nodes.length == 1) {
             //if  length of nodes is 1, master is same as slave
             slaveList.add(nodes[0]);

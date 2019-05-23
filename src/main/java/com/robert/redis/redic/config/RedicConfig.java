@@ -18,7 +18,7 @@ public class RedicConfig {
     private String connConfigStr;
 
 
-    @Bean(initMethod = "init")
+    @Bean
     public Redic redic() {
         List<String> connPool = new ArrayList<>();
         connPool.addAll(Arrays.asList(connConfigStr.split(",")));

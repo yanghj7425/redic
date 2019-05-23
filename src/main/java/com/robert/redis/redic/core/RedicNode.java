@@ -38,7 +38,7 @@ public class RedicNode {
 		this.master = new JedisPool(new GenericObjectPoolConfig(),
 				masterHostPortArray[0], Integer.valueOf(masterHostPortArray[1]));
 
-		this.slaves = new ArrayList<JedisPool>();
+		this.slaves = new ArrayList<>();
 		for (String slaveConnStr : slavesConnStrs) {
 			String[] slaveHostPortArray = slaveConnStr
 					.split(HOST_PORT_SEPARATOR);
